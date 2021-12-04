@@ -10,5 +10,5 @@ pygsheets==2.0.5
 requests==2.25.1
 selenium==3.141.0
 SQLAlchemy==1.4.22
-gunicorn==19.3.0
+gunicorn==19.7.1
 
