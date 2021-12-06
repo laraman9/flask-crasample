@@ -357,16 +357,15 @@ def pchome(item, item_id):
 
     print(" ==== pchome threading done ====")
 
-def shopee(item, item_id):
-    print(" shopee threading start: ", item)
-    d4 = crawler02.shopee(item)
-    d4['item'] = item_id
-    d4.to_sql(name='data', con=conn, if_exists='append', index=False)
+#def shopee(item, item_id):
+#    print(" shopee threading start: ", item)
+#    d4 = crawler02.shopee(item)
+#    d4['item'] = item_id
+#    d4.to_sql(name='data', con=conn, if_exists='append', index=False)
     
-    with conn.connect() as con:
-        rs = con.execute(f'UPDATE records SET status=status+1 WHERE id = {item_id};')
-
-    print(" ==== shopee threading done ====")
+#    with conn.connect() as con:
+#        rs = con.execute(f'UPDATE records SET status=status+1 WHERE id = {item_id};')
+#    print(" ==== shopee threading done ====")
 
 @app.route("/")
 def hello():
@@ -439,8 +438,8 @@ def search():
     t2.start()
     t3 = threading.Thread(target = pchome, args = (item, item_id,))
     t3.start()
-    t4 = threading.Thread(target = shopee, args = (item, item_id,))
-    t4.start()
+ #   t4 = threading.Thread(target = shopee, args = (item, item_id,))
+ #   t4.start()
             
     return redirect('/')
 
